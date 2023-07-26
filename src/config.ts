@@ -1,4 +1,5 @@
 import { config as dotenv } from 'dotenv'
+
 interface DatabaseConfig {
   host: string;
   port: number;
