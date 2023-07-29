@@ -1,7 +1,7 @@
 import express from 'express'
 import {
   getAllProducts,
-} from '../services/productsService'
+} from '../controllers/productsController'
 
 const router = express.Router()
 
