@@ -7,7 +7,7 @@ const app = express()
 
 app.use('/', defaultServerRouter)
 
-app.use('/api/products', productsRouter)
+app.use('/products', productsRouter)
 
 
 app.use(errorHandler)
