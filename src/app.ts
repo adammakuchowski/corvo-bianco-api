@@ -1,12 +1,15 @@
-import express, {Request, Response } from 'express'
-import productsRouter from './routes/products'
+import express from 'express'
+import errorHandler from './middlewares/errorHandler'
+import defaultServerRouter from './api/routes/defaultServerRouter'
+import productsRouter from './api/routes/productsRouter'
 
 const app = express()
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello, world!')
-})
+app.use('/', defaultServerRouter)
 
 app.use('/products', productsRouter)
+
+
+app.use(errorHandler)
 
 export default app
