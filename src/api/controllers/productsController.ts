@@ -1,26 +1,28 @@
 import {Request, Response} from 'express'
-import ProductModel from '../../db/models/productModel'
 import {Product} from '../../interfaces/RequestTypes'
-import Joi from 'joi'
+import {createNewProduct, findAllProducts} from '../services/productsService'
 
-const products = [1, 2, 3]
+export const getAllProducts = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const resault = await findAllProducts()
 
-export const createProduct = async (req: Request, res: Response): Promise<void> => {
+    res.status(200)
+    res.json(resault)
+  } catch (error: any) {
+    console.error('[getAllProducts] error:', error.message)
+  }
+}
+
+export const createProduct = async (req: Request<{}, {}, Product>, res: Response): Promise<void> => {
   const product = req.body
 
   try {
-    // const newProduct = new ProductModel(product)
-    // const savedProduct = await newProduct.save()
+    const savedProduct = await createNewProduct(product)
 
-    // res.json(savedProduct)
-
-    res.json(req.body)
+    res.status(201)
+    res.json(product)
+    console.info('Product saved')
   } catch (error: any) {
-    console.error('Error when creating a new product:', error.message);
+    console.error('[createProduct] error:', error.message)
   }
-
-}
-
-export const getAllProducts = (req: Request, res: Response): void => {
-  res.json(products)
 }

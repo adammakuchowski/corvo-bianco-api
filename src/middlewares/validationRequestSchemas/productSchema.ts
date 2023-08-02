@@ -10,6 +10,6 @@ export default Joi.object({
   color: Joi.string().required(),
   productionYear: Joi.string().required(),
   countryOfOrigin: Joi.string().required(),
-  img: Joi.any().required(),
+  img: Joi.any(),
   price: Joi.number().required(),
 })

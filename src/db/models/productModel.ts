@@ -10,7 +10,7 @@ interface Product {
   color: string;
   productionYear: string;
   countryOfOrigin: string;
-  img: any;
+  img?: any;
   price: number;
 }
 
@@ -24,7 +24,7 @@ const productSchema = new mongoose.Schema<Product>({
   color:{ type: String, required: true },
   productionYear: { type: String, required: true },
   countryOfOrigin: { type: String, required: true },
-  img:{ type: mongoose.Schema.Types.Mixed, required: true },
+  img:{ type: mongoose.Schema.Types.Mixed},
   price: { type: Number, required: true },
 })
 

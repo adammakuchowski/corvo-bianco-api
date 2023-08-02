@@ -8,6 +8,6 @@ export interface Product {
   color: string;
   productionYear: string;
   countryOfOrigin: string;
-  img: any;
+  img?: any;
   price: number;
 }
