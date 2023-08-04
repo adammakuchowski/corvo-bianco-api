@@ -13,4 +13,5 @@ router.get('/getAllProducts', getAllProducts)
 
 router.post('/createProduct', validationRequest(productSchema), createProduct)
 
+
 export default router
