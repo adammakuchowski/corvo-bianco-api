@@ -2,10 +2,11 @@ import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import errorHandler from './middlewares/errorHandler'
-import defaultServerRouter from './api/routes/defaultServerRouter'
-import productsRouter from './api/routes/productsRouter'
 import {connectDB} from './db/db'
 import corsOptions from './corsConfig'
+import defaultServerRouter from './api/routes/defaultServerRouter'
+import productsRouter from './api/routes/productsRouter'
+import ordersRouter from './api/routes/ordersRouter'
 
 const app = express()
 connectDB()
@@ -16,6 +17,7 @@ app.use(cors(corsOptions))
 
 app.use('/', defaultServerRouter)
 app.use('/products', productsRouter)
+app.use('/orders', ordersRouter)
 
 app.use(errorHandler)
 
