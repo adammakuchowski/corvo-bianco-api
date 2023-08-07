@@ -1,6 +1,7 @@
 import Joi from 'joi'
+import {Product} from '../interfaces/commonTypes'
 
-export default Joi.object({
+export const newProductSchema = Joi.object<Product>({
   id: Joi.string().required(),
   name: Joi.string().required(),
   brand: Joi.string().required(),
