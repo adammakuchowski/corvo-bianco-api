@@ -1,5 +1,5 @@
 import ProductModel from '../../db/models/productModel'
-import {Product} from '../../interfaces/RequestTypes'
+import {Product} from '../../interfaces/commonTypes'
 
 export const createNewProduct = async (product: Product) => {
   const newProduct = new ProductModel(product)

@@ -3,15 +3,20 @@ import {
   createProduct,
   getAllProducts,
 } from '../controllers/productsController'
-import productSchema from '../../middlewares/validationRequestSchemas/productSchema'
+import {newProductSchema} from '../../validators/productsValidation'
 import {validationRequest} from '../../middlewares/validationRequest'
 
 const router = express.Router()
 
+router.get(
+  '/getAllProducts',
+  getAllProducts,
+)
 
-router.get('/getAllProducts', getAllProducts)
-
-router.post('/createProduct', validationRequest(productSchema), createProduct)
-
+router.post(
+  '/createProduct',
+  validationRequest(newProductSchema),
+  createProduct,
+)
 
 export default router

@@ -1,18 +1,5 @@
 import mongoose from 'mongoose'
-
-interface Product {
-  id: string;
-  name: string;
-  brand: string;
-  quality: number;
-  category: string;
-  typ: string;
-  color: string;
-  productionYear: string;
-  countryOfOrigin: string;
-  img?: any;
-  price: number;
-}
+import {Product} from '../../interfaces/commonTypes'
 
 const productSchema = new mongoose.Schema<Product>({
   id: { type: String, required: true },

@@ -1,5 +1,5 @@
 import {Request, Response} from 'express'
-import {Product} from '../../interfaces/RequestTypes'
+import {Product} from '../../interfaces/commonTypes'
 import {createNewProduct, findAllProducts} from '../services/productsService'
 
 export const getAllProducts = async (req: Request, res: Response): Promise<void> => {
@@ -17,7 +17,7 @@ export const createProduct = async (req: Request<{}, {}, Product>, res: Response
   const product = req.body
 
   try {
-    const savedProduct = await createNewProduct(product)
+    await createNewProduct(product)
 
     res.status(201)
     res.json(product)
