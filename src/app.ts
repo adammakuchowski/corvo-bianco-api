@@ -14,11 +14,13 @@ connectDB()
 app.use(morgan('dev'))
 app.use(express.json())
 app.use(cors(corsOptions))
+// TODO: init helmet 
 
 app.use('/', defaultServerRouter)
 app.use('/products', productsRouter)
 app.use('/orders', ordersRouter)
 
+// TODO: not found handler
 app.use(errorHandler)
 
 export default app

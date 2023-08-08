@@ -5,7 +5,7 @@ export const newOrderSchema = Joi.object<Order>({
   email: Joi.string().required(),
   name: Joi.string().required(),
   surname: Joi.string().required(),
-  adress: Joi.number().required(),
+  adress: Joi.string().required(),
   products: Joi.array().items(Joi.string().required()),
   postalCode: Joi.string().required(),
   city: Joi.string().required(),
