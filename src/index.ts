@@ -4,8 +4,8 @@ import {connectDB} from './db/db'
 
 const startApp = async () => {
   try {
-    const {port} = config 
-    
+    const {port} = config
+
     await connectDB()
     const express = createApp()
 

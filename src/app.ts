@@ -15,13 +15,13 @@ const setupMiddlewares = (app: Application) => {
 }
 
 const setupErrorHandling = (app: Application) => {
-// TODO: not found handler
-app.use(errorHandler)
+  // TODO: not found handler
+  app.use(errorHandler)
 }
 
 const createApp = () => {
   const app = express()
-  
+
   setupMiddlewares(app)
 
   app.use('/', defaultServerRouter)
