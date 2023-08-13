@@ -1,8 +1,22 @@
-import app from './app'
+import createApp from './app'
 import config from './config'
+import {connectDB} from './db/db'
 
-const {port} = config 
+const startApp = async () => {
+  try {
+    const {port} = config
 
-app.listen(port, () => {
-  console.log(`API is listening on port: ${port}`)
-})
+    await connectDB()
+    const express = createApp()
+
+    express.listen(port, () => {
+      console.log(`API is listening on port: ${port}`)
+    })
+  } catch (error) {
+    console.error(error)
+
+    process.exitCode = 1
+  }
+}
+
+startApp()
