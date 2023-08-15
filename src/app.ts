@@ -1,6 +1,7 @@
 import express, {Application} from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
+import helmet from 'helmet'
 import errorHandler from './middlewares/errorHandler'
 import corsOptions from './corsConfig'
 import defaultServerRouter from './api/routes/defaultServerRouter'
@@ -9,9 +10,9 @@ import ordersRouter from './api/routes/ordersRouter'
 
 const setupMiddlewares = (app: Application) => {
   app.use(morgan('dev'))
+  app.use(helmet())
   app.use(express.json())
   app.use(cors(corsOptions))
-  // TODO: init helmet 
 }
 
 const setupErrorHandling = (app: Application) => {
