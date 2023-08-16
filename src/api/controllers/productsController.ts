@@ -1,4 +1,5 @@
 import {Request, Response} from 'express'
+import {logger} from '../../app'
 import {Product} from '../../interfaces/commonTypes'
 import {createNewProduct, findAllProducts} from '../services/productsService'
 
@@ -9,7 +10,7 @@ export const getAllProducts = async (req: Request, res: Response): Promise<void>
     res.status(200)
     res.json(resault)
   } catch (error: any) {
-    console.error('[getAllProducts] error:', error.message)
+    logger.error('[getAllProducts] error:', error.message)
   }
 }
 
@@ -21,8 +22,8 @@ export const createProduct = async (req: Request<{}, {}, Product>, res: Response
 
     res.status(201)
     res.json(product)
-    console.info('Product saved')
+    logger.info('Product saved')
   } catch (error: any) {
-    console.error('[createProduct] error:', error.message)
+    logger.error('[createProduct] error:', error.message)
   }
 }
