@@ -7,6 +7,7 @@ import corsOptions from './corsConfig'
 import defaultServerRouter from './api/routes/defaultServerRouter'
 import productsRouter from './api/routes/productsRouter'
 import ordersRouter from './api/routes/ordersRouter'
+import notFound from './validators/notFoundHandler'
 
 const setupMiddlewares = (app: Application) => {
   app.use(morgan('dev'))
@@ -16,7 +17,7 @@ const setupMiddlewares = (app: Application) => {
 }
 
 const setupErrorHandling = (app: Application) => {
-  // TODO: not found handler
+  app.use(notFound)
   app.use(errorHandler)
 }
 
