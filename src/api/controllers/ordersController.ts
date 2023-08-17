@@ -1,4 +1,5 @@
 import {Request, Response} from 'express'
+import {logger} from '../../app'
 import {Order} from '../../interfaces/commonTypes'
 import {createNewOrder} from '../services/ordersService'
 
@@ -10,8 +11,8 @@ export const createOrder = async (req: Request<{}, {}, Order>, res: Response): P
 
     res.status(201)
     res.json(order)
-    console.info('Order saved')
+    logger.info('Order saved')
   } catch (error: any) {
-    console.error('[createOrder] error:', error.message)
+    logger.error('[createOrder] error:', error.message)
   }
 }
