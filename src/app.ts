@@ -8,6 +8,7 @@ import loggerConfig from './configs/winstonConfig'
 import defaultServerRouter from './api/routes/defaultServerRouter'
 import productsRouter from './api/routes/productsRouter'
 import ordersRouter from './api/routes/ordersRouter'
+import notFound from './validators/notFoundHandler'
 import errorHandler from './middlewares/errorHandler'
 
 export const logger = winston.createLogger(loggerConfig)
@@ -20,7 +21,7 @@ const setupMiddlewares = (app: Application) => {
 }
 
 const setupErrorHandling = (app: Application) => {
-  // TODO: not found handler
+  app.use(notFound)
   app.use(errorHandler)
 }
 
