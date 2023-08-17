@@ -2,11 +2,15 @@ import express, {Application} from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import helmet from 'helmet'
-import errorHandler from './middlewares/errorHandler'
-import corsOptions from './corsConfig'
+import winston from 'winston'
+import corsOptions from './configs/corsConfig'
+import loggerConfig from './configs/winstonConfig'
 import defaultServerRouter from './api/routes/defaultServerRouter'
 import productsRouter from './api/routes/productsRouter'
 import ordersRouter from './api/routes/ordersRouter'
+import errorHandler from './middlewares/errorHandler'
+
+export const logger = winston.createLogger(loggerConfig)
 
 const setupMiddlewares = (app: Application) => {
   app.use(morgan('dev'))
