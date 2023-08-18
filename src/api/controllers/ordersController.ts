@@ -11,8 +11,8 @@ export const createOrder = async (req: Request<{}, {}, Order>, res: Response): P
 
     res.status(201)
     res.json(order)
-    logger.info('Order saved')
+    logger.info('[createOrder]: Order saved')
   } catch (error: any) {
-    logger.error('[createOrder] error:', error.message)
+    logger.error(`[createOrder]: ${error.message}`)
   }
 }
