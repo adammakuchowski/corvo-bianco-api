@@ -18,4 +18,5 @@ export const newOrderSchema = Joi.object<Order>({
   cardNumber: Joi.string().required(),
   cardDate: Joi.string().required(),
   cardCvc: Joi.string().required(),
+  totalCostPrice: Joi.number().required(),
 })
