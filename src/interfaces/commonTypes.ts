@@ -12,12 +12,17 @@ export interface Product {
   price: number;
 }
 
+export interface OrderProduct {
+  objectId: string;
+  quantity: number;
+}
+
 export interface Order {
   email: string;
   name: string;
   surname: string;
   adress: string;
-  products: string[];
+  products: OrderProduct[];
   postalCode: string;
   city: string;
   country: string;

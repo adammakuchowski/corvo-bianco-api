@@ -15,7 +15,7 @@ const errorHandler = (
     stack: err.stack,
   }
 
-  logger.error('Error: ', responseBody)
+  logger.error(responseBody)
   res.json(responseBody)
 }
 

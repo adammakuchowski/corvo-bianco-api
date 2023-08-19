@@ -10,7 +10,7 @@ export const getAllProducts = async (req: Request, res: Response): Promise<void>
     res.status(200)
     res.json(resault)
   } catch (error: any) {
-    logger.error('[getAllProducts] error:', error.message)
+    logger.error(`[getAllProducts]: ${error.message}`)
   }
 }
 
@@ -22,8 +22,8 @@ export const createProduct = async (req: Request<{}, {}, Product>, res: Response
 
     res.status(201)
     res.json(product)
-    logger.info('Product saved')
+    logger.info('[createProduct]: Product saved')
   } catch (error: any) {
-    logger.error('[createProduct] error:', error.message)
+    logger.error(`[createProduct]: ${error.message}`)
   }
 }

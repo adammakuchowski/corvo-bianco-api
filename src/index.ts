@@ -12,8 +12,8 @@ const startApp = async () => {
     express.listen(port, () => {
       logger.info(`API is listening on port: ${port}`)
     })
-  } catch (error) {
-    logger.error(error)
+  } catch (error: any) {
+    logger.error(error.message)
 
     process.exitCode = 1
   }
