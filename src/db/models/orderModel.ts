@@ -13,6 +13,7 @@ const orderSchema = new mongoose.Schema<Order>({
   cardNumber: { type: String, required: true },
   cardDate: { type: String, required: true },
   cardCvc : { type: String, required: true },
+  totalCostPrice: { type: Number, required: true },
 })
 
 const OrderModel = mongoose.model<Order>('Order', orderSchema)

@@ -29,4 +29,5 @@ export interface Order {
   cardNumber: string;
   cardDate: string;
   cardCvc: string;
+  totalCostPrice: number;
 }
