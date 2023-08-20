@@ -17,7 +17,7 @@ export const validationRequest = (schema: any) => {
     if (result.error) {
       const error = result.error.details[0].message
       
-      logger.error(error)
+      logger.error(`[validationRequest]: ${error}`)
       return res.status(400).json({
         error
       })
