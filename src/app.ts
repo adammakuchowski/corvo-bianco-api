@@ -1,4 +1,4 @@
-import express, {Application} from 'express'
+import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import helmet from 'helmet'
@@ -10,33 +10,23 @@ import productsRouter from './api/routes/productsRouter'
 import ordersRouter from './api/routes/ordersRouter'
 import notFound from './validators/notFoundHandler'
 import errorHandler from './middlewares/errorHandler'
+import {connectDB} from './db/db'
 
 export const logger = winston.createLogger(loggerConfig)
 
-const setupMiddlewares = (app: Application) => {
-  app.use(morgan('dev'))
-  app.use(helmet())
-  app.use(express.json())
-  app.use(cors(corsOptions))
-}
+connectDB()
+const app = express()
 
-const setupErrorHandling = (app: Application) => {
-  app.use(notFound)
-  app.use(errorHandler)
-}
+app.use(morgan('dev'))
+app.use(helmet())
+app.use(express.json())
+app.use(cors(corsOptions))
 
-const createApp = () => {
-  const app = express()
+app.use('/', defaultServerRouter)
+app.use('/products', productsRouter)
+app.use('/orders', ordersRouter)
 
-  setupMiddlewares(app)
+app.use(notFound)
+app.use(errorHandler)
 
-  app.use('/', defaultServerRouter)
-  app.use('/products', productsRouter)
-  app.use('/orders', ordersRouter)
-
-  setupErrorHandling(app)
-
-  return app
-}
-
-export default createApp
+export default app
