@@ -1,6 +1,5 @@
 import app, {logger} from './app'
 import appConfig from './configs/appConfig'
-import {connectDB} from './db/db'
 
 const {port} = appConfig
 
