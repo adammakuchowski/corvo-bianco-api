@@ -9,6 +9,7 @@ interface DatabaseConfig {
   name: string;
   productLimit: number;
   orderLimit: number;
+  mongoUrl?: string;
 }
 
 interface AppConfig {
@@ -26,6 +27,7 @@ const appConfig: AppConfig = {
     name: process.env.DB_NAME || 'my_database',
     productLimit: Number(process.env.DB_PRODUCT_LIMIT) || 20,
     orderLimit: Number(process.env.DB_ORDER_LIMIT) || 50,
+    mongoUrl: process.env.MONGO_URL,
   }
 }
 

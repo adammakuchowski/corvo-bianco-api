@@ -1,4 +1,5 @@
 import {Request, Response} from 'express'
+
 import {logger} from '../../app'
 import {Product} from '../../interfaces/commonTypes'
 import {createNewProduct, findAllProducts} from '../services/productsService'
@@ -24,10 +25,10 @@ export const createProduct = async (req: Request<{}, {}, Product>, res: Response
   try {
     const canCreate = await canCreateDocument(ProductModel, productLimit)
     if (!canCreate) {
-      throw new Error('Limit of documents reached.')
+      throw new Error('Limit of products documents reached.')
     }
 
-    const savedProduct  = await createNewProduct(product)
+    const savedProduct = await createNewProduct(product)
     res.status(201)
     res.json(savedProduct)
     logger.info('[createProduct]: Product saved')

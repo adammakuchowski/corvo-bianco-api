@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+
 import {Order} from '../../interfaces/commonTypes'
 
 const orderSchema = new mongoose.Schema<Order>({
@@ -14,6 +15,8 @@ const orderSchema = new mongoose.Schema<Order>({
   cardDate: {type: String, required: true},
   cardCvc: {type: String, required: true},
   totalCostPrice: {type: Number, required: true},
+}, {
+  timestamps: true,
 })
 
 const OrderModel = mongoose.model<Order>('Order', orderSchema)

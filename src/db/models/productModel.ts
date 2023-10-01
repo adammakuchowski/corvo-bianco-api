@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+
 import {Product} from '../../interfaces/commonTypes'
 
 const productSchema = new mongoose.Schema<Product>({
@@ -13,6 +14,8 @@ const productSchema = new mongoose.Schema<Product>({
   countryOfOrigin: {type: String, required: true},
   img: {type: mongoose.Schema.Types.Mixed},
   price: {type: Number, required: true},
+}, {
+  timestamps: true,
 })
 
 const ProductModel = mongoose.model<Product>('Product', productSchema)
