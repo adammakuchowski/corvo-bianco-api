@@ -1,4 +1,5 @@
 import Joi from 'joi'
+
 import {Order, OrderProduct} from '../interfaces/commonTypes'
 
 const orderProduct = {

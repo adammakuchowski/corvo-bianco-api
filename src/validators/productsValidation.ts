@@ -1,4 +1,5 @@
 import Joi from 'joi'
+
 import {Product} from '../interfaces/commonTypes'
 
 export const newProductSchema = Joi.object<Product>({
