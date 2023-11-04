@@ -1,6 +1,6 @@
 import {logger} from '../app'
 
-export const canCreateDocument = async (mongooseModel: any, limit: number, filters = {}) => {
+export const canCreateDocument = async (mongooseModel: any, limit = 20 , filters = {}) => {
   try {
     if (!mongooseModel) {
       throw new Error('No mongoose model provided. Cannot proceed.')
