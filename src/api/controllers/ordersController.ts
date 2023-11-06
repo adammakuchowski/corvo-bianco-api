@@ -1,6 +1,6 @@
 import {Request, Response} from 'express'
 
-import {logger} from '../../../app'
+import {logger} from '../../app'
 import {Order} from '../../interfaces/commonTypes'
 import {createNewOrder} from '../services/ordersService'
 import {canCreateDocument} from '../../db/mongoUtils'
