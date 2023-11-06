@@ -1,6 +1,6 @@
 import {Request, Response} from 'express'
 
-import {logger} from '../app'
+import {logger} from '../../app'
 
 export const validationRequest = (schema: any) => {
   return (req: Request, res: Response, next: any) => {

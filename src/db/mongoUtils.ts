@@ -1,4 +1,4 @@
-import {logger} from '../app'
+import {logger} from '../../app'
 
 export const canCreateDocument = async (mongooseModel: any, limit = 20 , filters = {}) => {
   try {

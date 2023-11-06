@@ -1,6 +1,6 @@
 import mongoose, {ConnectOptions} from 'mongoose'
 
-import {logger} from '../app'
+import {logger} from '../../app'
 import appConfig from '../configs/appConfig'
 
 const {database: {host, port, name, mongoUrl}} = appConfig 
