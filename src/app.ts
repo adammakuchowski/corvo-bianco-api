@@ -6,13 +6,13 @@ import winston from 'winston'
 
 import corsOptions from './configs/corsConfig'
 import loggerConfig from './configs/winstonConfig'
+import appConfig from './configs/appConfig'
 import defaultServerRouter from './api/routes/defaultServerRouter'
 import productsRouter from './api/routes/productsRouter'
 import ordersRouter from './api/routes/ordersRouter'
 import notFound from './validators/notFoundHandler'
 import errorHandler from './middlewares/errorHandler'
 import {connectDB} from './db/db'
-import appConfig from './configs/appConfig'
 
 const {port} = appConfig
 export const logger = winston.createLogger(loggerConfig)
