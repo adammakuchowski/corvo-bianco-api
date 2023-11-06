@@ -6,7 +6,7 @@ import appConfig from '../configs/appConfig'
 const {database: {host, port, name, mongoUrl}} = appConfig 
 const DB_URL = mongoUrl || `mongodb://${host}:${port}/${name}`
 
-export const connectDB = async (): Promise<void> => {
+const connectDB = async (): Promise<void> => {
   const dbOptions: ConnectOptions = {}
   try {
     await mongoose.connect(DB_URL)
@@ -15,3 +15,5 @@ export const connectDB = async (): Promise<void> => {
     logger.error(`Error connecting to MongoDB: ${error.message}`)
   }
 }
+
+export default connectDB
