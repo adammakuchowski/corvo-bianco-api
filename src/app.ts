@@ -12,7 +12,9 @@ import ordersRouter from './api/routes/ordersRouter'
 import notFound from './validators/notFoundHandler'
 import errorHandler from './middlewares/errorHandler'
 import {connectDB} from './db/db'
+import appConfig from './configs/appConfig'
 
+const {port} = appConfig
 export const logger = winston.createLogger(loggerConfig)
 
 connectDB()
@@ -30,4 +32,7 @@ app.use('/orders', ordersRouter)
 app.use(notFound)
 app.use(errorHandler)
 
-export default app
+app.listen(port, () => {
+  logger.info(`API is listening on port: ${port}`)
+})
+
