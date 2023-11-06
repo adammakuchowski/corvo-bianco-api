@@ -1,6 +1,6 @@
 import {Request, Response} from 'express'
 
-import {logger} from '../../app'
+import {logger} from '../../../app'
 import {Product} from '../../interfaces/commonTypes'
 import {createNewProduct, findAllProducts} from '../services/productsService'
 import ProductModel from '../../db/models/productModel'
