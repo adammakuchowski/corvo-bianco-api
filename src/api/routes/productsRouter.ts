@@ -3,7 +3,7 @@ import express from 'express'
 import {
   createProduct,
   getAllProducts,
-  productsTestRoutes,
+  testProductsRoute,
 } from '../controllers/productsController'
 import {newProductSchema} from '../../validators/productsValidation'
 import {validationRequest} from '../../middlewares/validationRequest'
@@ -23,7 +23,7 @@ router.post(
 
 router.get(
   '/test',
-  productsTestRoutes,
+  testProductsRoute,
 )
 
 export default router

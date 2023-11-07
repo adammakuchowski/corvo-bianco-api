@@ -34,7 +34,7 @@ export const createOrder = async (
   }
 }
 
-export const ordersTestRoutes = async (
+export const testOrdersRoute = async (
   req: Request,
   res: Response,
   next: NextFunction,
@@ -50,7 +50,7 @@ export const ordersTestRoutes = async (
         message: 'Request successfully processed'
       })
   } catch (error: any) {
-    logger.error(`[ordersTestRoutes]: ${error.message}`)
+    logger.error(`[testOrdersRoute]: ${error.message}`)
 
     next(error)
   }

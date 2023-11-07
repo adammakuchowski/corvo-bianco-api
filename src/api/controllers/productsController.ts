@@ -51,7 +51,7 @@ export const createProduct = async (
   }
 }
 
-export const productsTestRoutes = async (
+export const testProductsRoute = async (
   req: Request,
   res: Response,
   next: NextFunction,
@@ -67,7 +67,7 @@ export const productsTestRoutes = async (
         message: 'Request successfully processed'
       })
   } catch (error: any) {
-    logger.error(`[productsTestRoutes]: ${error.message}`)
+    logger.error(`[testProductsRoute]: ${error.message}`)
 
     next(error)
   }

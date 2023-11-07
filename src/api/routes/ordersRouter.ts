@@ -3,7 +3,7 @@ import express from 'express'
 import {validationRequest} from '../../middlewares/validationRequest'
 import {
   createOrder,
-  ordersTestRoutes
+  testOrdersRoute
 } from '../controllers/ordersController'
 import {newOrderSchema} from '../../validators/ordersValidation'
 
@@ -17,7 +17,7 @@ router.post(
 
 router.get(
   '/test',
-  ordersTestRoutes,
+  testOrdersRoute,
 )
 
 export default router
