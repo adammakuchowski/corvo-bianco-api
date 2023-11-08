@@ -22,7 +22,7 @@ router.post(
 )
 
 router.get(
-  '/test',
+  '/testRoute',
   testProductsRoute,
 )
 
