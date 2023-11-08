@@ -10,18 +10,23 @@ export const validationRequest = (schema: any) => {
       const error = 'Invalid body'
 
       logger.error(error)
-      return res.status(400).json({
-        error
-      })
+
+      return res
+        .status(400)
+        .json({
+          error
+        })
     }
 
     if (result.error) {
       const error = result.error.details[0].message
-      
+
       logger.error(`[validationRequest]: ${error}`)
-      return res.status(400).json({
-        error
-      })
+      return res
+        .status(400)
+        .json({
+          error
+        })
     }
 
     next()

@@ -1,4 +1,4 @@
-import {Request, Response} from 'express'
+import {NextFunction, Request, Response} from 'express'
 
 import {logger} from '../../app'
 import {Order} from '../../interfaces/commonTypes'
@@ -7,7 +7,11 @@ import {canCreateDocument} from '../../db/mongoUtils'
 import OrderModel from '../../db/models/orderModel'
 import appConfig from '../../configs/appConfig'
 
-export const createOrder = async (req: Request<{}, {}, Order>, res: Response): Promise<void> => {
+export const createOrder = async (
+  req: Request<{}, {}, Order>,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
   const order = req.body
   const {database: {orderLimit}} = appConfig
 
@@ -16,13 +20,38 @@ export const createOrder = async (req: Request<{}, {}, Order>, res: Response): P
     if (!canCreate) {
       throw new Error('Limit of orders documents reached.')
     }
-    
+
     const savedOrder = await createNewOrder(order)
 
-    res.status(201)
-    res.json(savedOrder)
+    res
+      .status(201)
+      .json(savedOrder)
     logger.info('[createOrder]: Order saved')
   } catch (error: any) {
     logger.error(`[createOrder]: ${error.message}`)
+
+    next(error)
+  }
+}
+
+export const testOrdersRoute = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
+  const {method, originalUrl} = req
+
+  try {
+    res
+      .status(200)
+      .json({
+        method,
+        originalUrl,
+        message: 'Request successfully processed'
+      })
+  } catch (error: any) {
+    logger.error(`[testOrdersRoute]: ${error.message}`)
+
+    next(error)
   }
 }
