@@ -20,4 +20,9 @@ router.get(
   testOrdersRoute,
 )
 
+router.post(
+  '/testRoute',
+  testOrdersRoute,
+)
+
 export default router

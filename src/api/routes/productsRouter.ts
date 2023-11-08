@@ -26,4 +26,9 @@ router.get(
   testProductsRoute,
 )
 
+router.post(
+  '/testRoute',
+  testProductsRoute,
+)
+
 export default router
