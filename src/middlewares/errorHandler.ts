@@ -9,7 +9,11 @@ const errorHandler = (
   res: Response<ErrorResponse>,
   next: NextFunction
 ) => {
+  const {method, originalUrl} = req
+
   const responseBody = {
+    method,
+    originalUrl,
     message: err.message,
     stack: err.stack,
   }
