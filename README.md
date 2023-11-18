@@ -64,6 +64,8 @@ npm run start
 
 ## Additional information
 
+Project base was used from [express-api-template](https://github.com/adammakuchowski/express-api-template), which originates from another one of my repositories: https://github.com/adammakuchowski/express-api-template
+
 The project was created entirely independently. Used as a source of knowledge
 official documentations and the Internet. 
 
