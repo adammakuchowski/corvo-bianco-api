@@ -39,7 +39,7 @@ npm install
 * If all dependencies are installed successfully, use the command to run the application
 
 ```
-npm run start
+npm run dev
 ```
 
 ## Link
