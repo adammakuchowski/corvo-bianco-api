@@ -13,9 +13,9 @@ const productSchema = new mongoose.Schema<Product>({
   productionYear: {type: String, required: true},
   countryOfOrigin: {type: String, required: true},
   img: {type: mongoose.Schema.Types.Mixed},
-  price: {type: Number, required: true},
+  price: {type: Number, required: true}
 }, {
-  timestamps: true,
+  timestamps: true
 })
 
 const ProductModel = mongoose.model<Product>('Product', productSchema)
