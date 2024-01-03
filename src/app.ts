@@ -35,3 +35,5 @@ app.use(errorHandler)
 app.listen(port, () => {
   logger.info(`API is listening on port: ${port}`)
 })
+
+export default app

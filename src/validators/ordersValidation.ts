@@ -4,7 +4,7 @@ import {Order, OrderProduct} from '../interfaces/commonTypes'
 
 const orderProduct = {
   objectId: Joi.string().required(),
-  quantity: Joi.number().required(),
+  quantity: Joi.number().required()
 }
 
 export const newOrderSchema = Joi.object<Order>({
@@ -19,5 +19,5 @@ export const newOrderSchema = Joi.object<Order>({
   cardNumber: Joi.string().required(),
   cardDate: Joi.string().required(),
   cardCvc: Joi.string().required(),
-  totalCostPrice: Joi.number().required(),
+  totalCostPrice: Joi.number().required()
 })
