@@ -1,9 +1,10 @@
 import express from 'express'
+import withAsyncHandler from 'express-async-handler'
 
 import {
   createProduct,
   getAllProducts,
-  testProductsRoute,
+  testProductsRoute
 } from '../controllers/productsController'
 import {newProductSchema} from '../../validators/productsValidation'
 import {validationRequest} from '../../middlewares/validationRequest'
@@ -12,23 +13,23 @@ const router = express.Router()
 
 router.get(
   '/getAllProducts',
-  getAllProducts,
+  withAsyncHandler(getAllProducts)
 )
 
 router.post(
   '/createProduct',
   validationRequest(newProductSchema),
-  createProduct,
+  withAsyncHandler(createProduct)
 )
 
 router.get(
   '/testRoute',
-  testProductsRoute,
+  withAsyncHandler(testProductsRoute)
 )
 
 router.post(
   '/testRoute',
-  testProductsRoute,
+  withAsyncHandler(testProductsRoute)
 )
 
 export default router
