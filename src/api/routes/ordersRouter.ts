@@ -1,4 +1,5 @@
 import express from 'express'
+import withAsyncHandler from 'express-async-handler'
 
 import {validationRequest} from '../../middlewares/validationRequest'
 import {
@@ -12,17 +13,17 @@ const router = express.Router()
 router.post(
   '/createOrder',
   validationRequest(newOrderSchema),
-  createOrder,
+  withAsyncHandler(createOrder)
 )
 
 router.get(
   '/testRoute',
-  testOrdersRoute,
+  withAsyncHandler(testOrdersRoute)
 )
 
 router.post(
   '/testRoute',
-  testOrdersRoute,
+  withAsyncHandler(testOrdersRoute)
 )
 
 export default router

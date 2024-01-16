@@ -8,11 +8,11 @@ import OrderModel from '../../db/models/orderModel'
 import appConfig from '../../configs/appConfig'
 
 export const createOrder = async (
-  req: Request<{}, {}, Order>,
+  req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ): Promise<void> => {
-  const order = req.body
+  const order: Order = req.body
   const {database: {orderLimit}} = appConfig
 
   try {
@@ -37,7 +37,7 @@ export const createOrder = async (
 export const testOrdersRoute = async (
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ): Promise<void> => {
   const {method, originalUrl} = req
 

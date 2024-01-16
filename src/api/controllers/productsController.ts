@@ -10,7 +10,7 @@ import appConfig from '../../configs/appConfig'
 export const getAllProducts = async (
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ): Promise<void> => {
   try {
     const resault = await findAllProducts()
@@ -26,11 +26,11 @@ export const getAllProducts = async (
 }
 
 export const createProduct = async (
-  req: Request<{}, {}, Product>,
+  req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ): Promise<void> => {
-  const product = req.body
+  const product: Product = req.body
   const {database: {productLimit}} = appConfig
 
   try {
@@ -54,7 +54,7 @@ export const createProduct = async (
 export const testProductsRoute = async (
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ): Promise<void> => {
   const {method, originalUrl} = req
 
